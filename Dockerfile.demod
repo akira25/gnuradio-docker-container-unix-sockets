@@ -1,0 +1,10 @@
+# Final image
+FROM akira25/gnuradio-docker-container:latest
+
+# create virtual memory circular buffer (vmcircbuf) default config
+RUN mkdir -p /root/.config/gnuradio/prefs
+RUN echo "gr::vmcircbuf_mmap_factory" > /root/.config/gnuradio/prefs/vmcircbuf_default_factory
+
+COPY ./flowgraphs/iq_sample_demod.py /app/flowgraph.py
+
+CMD ["/app/flowgraph.py"]
