@@ -1,0 +1,8 @@
+#
+# Builds a flowgraph into a gnuradio-3.7 container
+#
+FROM akira25/gnuradio-docker-container:3.7-debian
+
+COPY ./flowgraphs/iq_sample_37_demod.py /app/flowgraph.py
+
+CMD ["/app/flowgraph.py"]
